@@ -1,0 +1,14 @@
+public static int getFirstSetBit(int n){
+            
+        // Your code here
+        int stepCount=0;
+        while(n>0)
+        {
+            stepCount++;
+            int rem=n%2;
+            if(rem==1)
+                break;
+            n=n/2;
+        }
+        return stepCount;
+ }
