@@ -1,0 +1,31 @@
+//Approach-1[Brute Force]
+static boolean checkKthBit(int n, int k) {
+        // Your code here
+         int pos=0;
+        while(n>0 && pos<k) //n=3, pos=2 , k=2 
+        {
+            pos++; 
+            n=n/2;
+        }//n=3
+        
+        return (n%2)==1?true:false;
+        
+        return (n&(1<<k)) > 0 ? true : false;
+ }
+ 
+ 
+ //Approach-2[Effiecient]
+ //way - 1
+ static boolean checkKthBit(int n, int k) {
+        // Your code here
+        return (n&(1<<k)) > 0 ? true : false;
+ }
+ 
+ //way - 2
+ static boolean checkKthBit(int n, int k) {
+        // Your code here
+        return ((n>>k)&1)==1?true:false;
+ }
+ 
+ 
+    
