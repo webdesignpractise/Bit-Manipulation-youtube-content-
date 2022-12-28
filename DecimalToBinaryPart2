@@ -1,3 +1,4 @@
+//(Using Bitwise Operator)
 class Solution{
 	void toBinary(int N) {
 	    
