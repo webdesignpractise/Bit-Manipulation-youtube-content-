@@ -1,4 +1,25 @@
-//approach-1[Brute Force]
+//Approach-1[Brute Force]
+public static boolean isPowerofTwo(long n){
+        
+        // Your code here 
+        if(n==0)
+            return false;
+        int count=0;
+        while(n>0)
+        {
+            if(n%2==1)
+               count++;
+            n=n/2;
+        }
+        if(count>1)
+                return false;
+        else
+            return true;
+    }
+    //Time Complexity : O(log(n))
+//Space Complexity : O(1)
+
+//Approach-2[Brute Force] (More efficient from earlier)
 public static boolean isPowerofTwo(long n){
         
         // Your code here 
@@ -16,7 +37,7 @@ public static boolean isPowerofTwo(long n){
 //Space Complexity : O(1)
 
 
-//Approach-2[Efficient]
+//Approach-3[Efficient]
 public static boolean isPowerofTwo(long n){
         
         // Your code here 
