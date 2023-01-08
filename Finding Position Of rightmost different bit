@@ -1,0 +1,58 @@
+//Prerequisit
+public static int positionOfLastSetBit(int n)
+{
+   return (int)(Math.log(n&(-n))/Math.log(2))+1;
+}
+
+//Brute Force Approach
+public static int posOfRightMostDiffBit(int m, int n)
+    {
+            
+        // Your code here    
+        if(m==n)
+            return -1;
+        int count=1;
+        if(m==0)
+            return positionOfLastSetBit(n);
+        else if(n==0)
+             return positionOfLastSetBit(m);
+        else
+        {
+            
+            while(n>0 && m>0)
+            {
+                int rem = n%2;
+                int rem1 = m%2;
+                
+                if(rem!=rem1){
+                    break;
+                    
+                }
+                count++;
+            
+                n/=2;
+                m/=2;
+            }
+            
+        }
+        return count;
+    }
+}
+
+/Efficient Approach
+public static int posOfRightMostDiffBit(int m, int n){
+            
+        // Your code here    
+        if(m==n)
+            return -1;
+        int temp=0;
+        if(m==0)
+            temp=n;
+        else if(n==0)
+             temp=m;
+        else
+          temp=m^n;
+          
+        return positionOfLastSetBit(temp);
+    }
+}
