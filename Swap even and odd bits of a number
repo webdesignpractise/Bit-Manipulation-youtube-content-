@@ -1,0 +1,53 @@
+//Brute force approach
+ public static int decimalToBinary(List<Integer> arr)
+    {
+        int res=1;
+        int i=0;
+        while(i<arr.size() && arr.get(i)==0)i++;
+        i++;
+        for(;i<arr.size();i++)
+        {
+            res=(res*2)+arr.get(i);
+        }
+        return res;
+    }
+    public static List<Integer> swap(List<Integer> al)
+    {
+        for(int i=1;i<al.size();i+=2)
+        {
+            int temp=al.get(i);
+            al.set(i,al.get(i-1));
+            al.set(i-1,temp);
+        }
+        return al;
+    }
+     //Function to swap odd and even bits.
+    public static int swapBits(int n) 
+    {
+	    // Your code
+	    List<Integer> al = new ArrayList<>();
+    	while(n>0)
+    	{
+    	    al.add(n%2);
+    	    n/=2;
+    	}
+    	
+     	if(al.size()%2!=0)
+     	    al.add(0);
+     	List<Integer> swapped = swap(al);
+     	Collections.reverse(swapped);
+    	return decimalToBinary(swapped);
+	}
+  Time Complexity : O(n) where n=numbers of bits
+  Space Complexity : O(1)
+  
+  //Efficient Approach
+  public static int swapBits(int n) 
+  {
+      int odd = n&0xaaaaaaaa;
+	    int even = n&0x55555555;
+	    int res = (even<<1)|(odd>>1);
+      return res;
+  }
+	Time Complexity : O(1)
+  Space Complexity : O(1)
