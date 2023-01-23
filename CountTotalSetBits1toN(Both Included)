@@ -1,0 +1,47 @@
+Approach-1(Brute Force Approach)
+----------------------------------
+ public static int countBits(int n)
+    {
+        int count=0;
+        while(n>0)
+        {
+            if(n%2==1)
+                count++;
+            n/=2;
+        }
+        return count;
+    }
+    //Function to return sum of count of set bits in the integers from 1 to n.
+    public static int countSetBits(int n){
+    
+        // Your code here
+        int res=0;
+        for(int i=1;i<=n;i++)
+            res+=countBits(i);
+        return res;
+    }
+    
+  Time Complexity : O(nlog(n))
+  Space Complexity : O(1)
+
+Approach-2 (Efficient)
+--------------------
+public static int countSetBits(int n){
+    
+        // Your code here
+        n+=1;
+        int i=1;
+        int res=0;
+        while(n>=Math.pow(2,i))
+        {
+            res+=Math.pow(2,i-1)*(int)(n/Math.pow(2,i)); //count in set of 4
+            if(n%Math.pow(2,i) > Math.pow(2,i-1))
+                res+= (n%Math.pow(2,i)-Math.pow(2,i-1)); //Count out of set and beyond half range
+            i++;
+        }
+        res+=(n%Math.pow(2,i)-Math.pow(2,i-1));
+        return res;
+    }
+  Time Complexity : O(n)
+  Space Complexity : O(1)
+  
